@@ -11,7 +11,11 @@ const englishHelloPrefix = "Hello "
 
 // Hello returns the String to be printed.
 func Hello(name string) string {
-	return "Hello " + name + "!"
+	if name == "" {
+		name = "World"
+	}
+
+	return englishHelloPrefix + name + "!"
 }
 
 func main() {
