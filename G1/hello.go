@@ -7,17 +7,38 @@ import "fmt"
  * ones. Hence, we separate fmt.Println and the String.
  */
 
-const englishHelloPrefix = "Hello "
+const spanish = "Spanish"
+const french  = "French"
 
-// Hello returns the String to be printed.
-func Hello(name string) string {
+const englishHelloPrefix = "Hello "
+const spanishHelloPrefix = "Hola "
+const frenchHelloPrefix  = "Bonjour "
+
+// Hello returns the Greeting.
+func Hello(name, language string) string {
 	if name == "" {
 		name = "World"
 	}
 
-	return englishHelloPrefix + name + "!"
+	prefix := greetingPrefix(language)
+
+	return prefix + name + "!"
+}
+
+// Starts with lowercase, it's a private function.
+func greetingPrefix(language string) (prefix string) {
+	switch language {
+		case spanish:
+			prefix = spanishHelloPrefix
+		case french:
+			prefix = frenchHelloPrefix
+		default:
+			prefix = englishHelloPrefix
+	}
+
+	return
 }
 
 func main() {
-	fmt.Println(Hello("world"))
+	fmt.Println(Hello("world", ""))
 }
