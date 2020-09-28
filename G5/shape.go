@@ -1,8 +1,8 @@
-package rectangle
+package shapes
 
 import ("math")
 
-// Shape interface
+// Shape interface.
 type Shape interface {
 	Area() float64
 }
@@ -22,7 +22,7 @@ func (r Rectangle) Area() float64 {
 	return (r.width * r.height)
 }
 
-// Circle struct
+// Circle struct.
 type Circle struct {
 	radius float64
 }
@@ -30,4 +30,14 @@ type Circle struct {
 // Area for Circle.
 func (c Circle) Area() float64 {
 	return c.radius * c.radius * math.Pi
+}
+
+// Triangle struct.
+type Triangle struct {
+	height, base float64
+}
+
+// Area for Triangle.
+func (t Triangle) Area() float64 {
+	return 0.5 * t.base * t.height
 }
